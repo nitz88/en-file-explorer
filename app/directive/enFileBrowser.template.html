@@ -1,26 +1,29 @@
-<div class="fileBrowser  container-fluid">
-	<div class="currentFolder">
-		<i class="glyphicon glyphicon-folder-open fontIcon"></i>
-		<span>{{ vm.model.currentFolder || vm.model.rootFolderName}}</span>
-		<span class="pull-right handCursor">
+<div class="fileBrowser container-fluid">
+	<div class="currentFolder row">
+		<span class="col-md-6 col-xs-6">
+			<i class="glyphicon glyphicon-folder-open fontIcon"></i>
+			<span>{{ vm.model.currentFolder || vm.model.rootFolderName}}</span>
+		</span>		
+		<span class="col-md-6 col-xs-6 handCursor text-right">
 			<a ng-click="vm.goToRoot()">
 				<i class="glyphicon glyphicon-folder-open fontIcon"></i>
 				Goto Root
 			</a>
 		</span>
 	</div>
-	<div class="actions container-fluid">
-		<button class="btn mybtn" ng-click="vm.showNewFolderForm()">
-			<i class="glyphicon glyphicon-plus fontIcon"></i>Add Directory
-		</button>
-		<button class="btn mybtn" ng-click="vm.openFilExplorer()">
-			<i class="glyphicon glyphicon-plus fontIcon"></i>Add Files
-			<input class="ng-hide" type="file" id="fileExplorer"
-					onchange="angular.element(this).scope().vm.filesSelected(this)" multiple>
-		</button>
-
-		<span class="filterSection">
-			 <div class="input-group filterSelection">
+	<div class="actions row">
+		<span class="col-md-3 col-xs-12">
+			<button class="btn mybtn" ng-click="vm.showNewFolderForm()">
+				<i class="glyphicon glyphicon-plus fontIcon"></i>Add Directory
+			</button>
+			<button class="btn mybtn" ng-click="vm.openFilExplorer()">
+				<i class="glyphicon glyphicon-plus fontIcon"></i>Add Files
+				<input class="ng-hide" type="file" id="fileExplorer"
+						onchange="angular.element(this).scope().vm.filesSelected(this)" multiple>
+			</button>
+		</span>
+		<span class="filterSection col-md-6 col-xs-12">
+			<div class="input-group filterSelection">
 				<!--Filter <i class="glyphicon glyphicon-triangle-bottom fontIcon"></i>-->
 				<div class="input-group-btn search-panel">
                     <button type="button" class="btn btn-default dropdown-toggle" ng-click="vm.toggleDropDownMenu()">
@@ -34,12 +37,11 @@
                     </ul>
                 </div>
                 <input type="hidden" name="search_param" value="all" id="search_param">
-				<input type="text" class="form-control" name="x" placeholder="Filter" ng-model="vm.model.filter">
-                
+				<input type="text" class="form-control" name="x"
+						placeholder="Filter" ng-model="vm.model.filter">
 			</div>
 		</span>
-
-		<span class="pagination pull-right">
+		<span class="pagination col-md-3 col-xs-12 text-right">
 			<span class="details">
 				<span>{{vm.model.pagination.currentPage}}</span> of <span>{{vm.model.pagination.totalPages}}</span> pages <span>{{vm.model.currentFolderDataLength}} results</span>
 			</span>
@@ -61,12 +63,12 @@
 			</span>
 		</span>
 	</div>
-	<div class="newFolder" ng-show="vm.model.showNewFolderForm">
+	<div class="newFolder row" ng-show="vm.model.showNewFolderForm">
 		<input type="text" placeholder="Folder Name" ng-model="vm.model.newFolderName">
 		<button class="btn mybtn" ng-click="vm.addNewFolder()">Add</button>
 		<button class="btn mybtn" ng-click="vm.closeNewFolderForm()">Cancel</button>
 	</div>
-	<div class="fileBrowserDetails">
+	<div class="fileBrowserDetails row">
 		<table class="table table-hover">
 			<thead>
 				<tr>

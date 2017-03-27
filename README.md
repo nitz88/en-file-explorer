@@ -3,7 +3,7 @@
 This repository was created for making File Explorer on angular 1.4.3 and webpack that allows user to create directory and upload files in particular directory.
 
 # Demo
-![Screenshot](img/screenshot.png "Screenshot")
+![Screenshot](https://raw.githubusercontent.com/nitz88/en-file-explorer/master/img/screenshot.PNG "Screenshot")
 
 # Note:
     This is just demo app where I am trying to learn and develop module using Webpack. It is not production ready.
