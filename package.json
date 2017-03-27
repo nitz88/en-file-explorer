@@ -1,0 +1,24 @@
+{
+  "name": "enfileexplorer",
+  "version": "0.0.1",
+  "description": "This repository was created for making File Explorer on angular 1.4.3 and webpack 2 that allows user to create directory and upload files in particular directory.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch",
+    "build": "webpack -p"
+  },
+  "author": "'Nitish Surelia",
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "1.4.3",
+    "html-loader": "0.4.5",
+    "jquery": "3.2.1",
+    "ngtemplate-loader": "1.3.1",
+    "raw-loader": "0.5.1",
+    "source-map-loader": "0.2.0",
+    "uglify-js": "2.8.16",
+    "webpack": "2.3.0",
+    "webpack-dev-server": "2.4.2"
+  }
+}

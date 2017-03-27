@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>En File Browser</title>
+    
+	<!--TODO: use webpack way-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<style>
+		/*TODO: Remove from here and add in css files*/
+		.mybtn{
+			background: #6f5499;
+			color: white;
+		}
+		.mybtn:hover, .mybtn:focus{
+			color: white;
+			background: #5e4487;
+		}
+		.fontIcon{
+			color:#d4d3d3;
+			padding-right: 4px;
+		}
+		.fileBrowser{
+			padding: 8px;
+		}
+		.handCursor{
+			cursor: pointer;
+		}
+		.filterSection{
+			border: 1px;
+			border-radius: 40%;
+		}
+		.dropdown, .dropdown-toggle{
+			display: inline-block;
+		}
+		button .caret{
+			margin-left: 4px;
+		}
+		.filterSelection{
+			width: 50%;
+		    display: inline-table;
+		    top: 13px;
+		}
+	</style>
+</head>
+<body ng-app="enFileExplorer">
+    <en-file-browser></en-file-browser>
+    <script src="vendor.bundle.js"></script>
+    <script src="app.bundle.js"></script>
+</body>
+</html>
