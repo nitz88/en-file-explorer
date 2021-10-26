@@ -17,7 +17,7 @@ This repository was created for making File Explorer on angular 1.4.3 and webpac
 
 ### Todos
  - Add files by drag-drop
- - Remove directory/ files
+ - Remove directory/ filess
 
 License
 ----
