@@ -5,7 +5,7 @@ function fileBrowserDirective($timeout, $filter, fileBrowserService) {
     controllerAs: "vm",
     bindToController: true,
     template: require("./enFileBrowser.template.html"),
-    controller: function () {
+    controller: function() {
       console.log("File Browser Controller(FBC) - start");
       this.model = {
         data: [],
@@ -86,12 +86,12 @@ function fileBrowserDirective($timeout, $filter, fileBrowserService) {
         console.log("FBC - New Folder Added");
       };
 
-      /*
-                if directory is selected then 
-                    will make currentfolder id change,
-                    will make current page number to 0
-                    will set pagination control as it needs to be updated based on current folder data
-            */
+      /** 
+          if directory is selected then 
+              will make currentfolder id change,
+              will make current page number to 0
+              will set pagination control as it needs to be updated based on current folder data
+      */
 
       this.changeFolder = function (fileObj) {
         if (fileObj.type.toLowerCase() === "directory") {

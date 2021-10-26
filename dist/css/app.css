@@ -1,0 +1,48 @@
+.mybtn{
+    background: #6f5499;
+    color: white;
+}
+.mybtn:hover, .mybtn:focus{
+    color: white;
+    background: #5e4487;
+}
+.fontIcon{
+    color:#d4d3d3;
+    padding-right: 4px;
+}
+.fileBrowser{
+    padding: 8px;
+}
+.handCursor{
+    cursor: pointer;
+}
+.filterSection{
+    border: 1px;
+    border-radius: 40%;
+}
+.dropdown, .dropdown-toggle{
+    display: inline-block;
+}
+button .caret{
+    margin-left: 4px;
+}
+.filterSelection{
+    display: inline-table;
+}
+.actions{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.pagination{
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .col-xs-12 {
+        text-align: center;        
+    }
+    .filterSection{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
