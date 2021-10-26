@@ -1,5 +1,4 @@
-dist/vendor.bundle.js
-dist/app.bundle.js
+dist/
 node_modules
 npm-debug.log
 .vscode

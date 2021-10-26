@@ -1,115 +1,145 @@
 <div class="fileBrowser container-fluid">
-	<div class="currentFolder row">
-		<span class="col-md-6 col-xs-6">
-			<i class="glyphicon glyphicon-folder-open fontIcon"></i>
-			<span>{{ vm.model.currentFolder || vm.model.rootFolderName}}</span>
-		</span>		
-		<span class="col-md-6 col-xs-6 handCursor text-right">
-			<a ng-click="vm.goToRoot()">
-				<i class="glyphicon glyphicon-folder-open fontIcon"></i>
-				Goto Root
-			</a>
-		</span>
-	</div>
-	<div class="actions row">
-		<span class="col-md-3 col-xs-12">
-			<button class="btn mybtn" ng-click="vm.showNewFolderForm()">
-				<i class="glyphicon glyphicon-plus fontIcon"></i>Add Directory
-			</button>
-			<button class="btn mybtn" ng-click="vm.openFilExplorer()">
-				<i class="glyphicon glyphicon-plus fontIcon"></i>Add Files
-				<input class="ng-hide" type="file" id="fileExplorer"
-						onchange="angular.element(this).scope().vm.filesSelected(this)" multiple>
-			</button>
-		</span>
-		<span class="filterSection col-md-6 col-xs-12">
-			<div class="input-group filterSelection">
-				<!--Filter <i class="glyphicon glyphicon-triangle-bottom fontIcon"></i>-->
-				<div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" ng-click="vm.toggleDropDownMenu()">
-                    	<span id="search_concept">{{vm.model.filterByLabel}}</span> <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu filterMenu" role="menu">
-						<li class="handCursor" ng-repeat="option in vm.model.filterOption"
-							ng-click="vm.selectFilterOption(option)" ng-hide="option.label === vm.model.filterByLabel">
-							<a>{{option.label}}</a>
-						</li>
-                    </ul>
-                </div>
-                <input type="hidden" name="search_param" value="all" id="search_param">
-				<input type="text" class="form-control" name="x"
-						placeholder="Filter" ng-model="vm.model.filter">
-			</div>
-		</span>
-		<span class="pagination col-md-3 col-xs-12 text-right">
-			<span class="details">
-				<span>{{vm.model.pagination.currentPage}}</span> of <span>{{vm.model.pagination.totalPages}}</span> pages <span>{{vm.model.currentFolderDataLength}} results</span>
-			</span>
-			<span class="controls">
-				<button class="btn" title="Previous"
-						ng-click="vm.prevPage()" ng-disabled="vm.model.pagination.disablePrevBtn">
-					<i class="glyphicon glyphicon-chevron-left"></i>
-				</button>
-				
-				<button class="btn" title="Next"
-						ng-click="vm.nextPage()" ng-disabled="vm.model.pagination.disableNextBtn">
-					<i class="glyphicon glyphicon-chevron-right"></i>
-				</button>
+  <div class="currentFolder row">
+    <span class="col-md-6 col-xs-6">
+      <i class="glyphicon glyphicon-folder-open fontIcon"></i>
+      <span>{{ vm.model.currentFolder || vm.model.rootFolderName}}</span>
+    </span>
+    <span class="col-md-6 col-xs-6 handCursor text-right">
+      <a ng-click="vm.goToRoot()">
+        <i class="glyphicon glyphicon-folder-open fontIcon"></i>
+        Goto Root
+      </a>
+    </span>
+  </div>
+  <div class="actions row">
+    <span class="col-md-3 col-xs-12">
+      <button class="btn mybtn" ng-click="vm.showNewFolderForm()">
+        <i class="glyphicon glyphicon-plus fontIcon"></i>Add Directory
+      </button>
+      <button class="btn mybtn" ng-click="vm.openFilExplorer()">
+        <i class="glyphicon glyphicon-plus fontIcon"></i>Add Files
+        <input
+          class="ng-hide"
+          type="file"
+          id="fileExplorer"
+          onchange="angular.element(this).scope().vm.filesSelected(this)"
+          multiple
+        />
+      </button>
+    </span>
+    <span class="filterSection col-md-6 col-xs-12">
+      <div class="input-group filterSelection">
+        <!--Filter <i class="glyphicon glyphicon-triangle-bottom fontIcon"></i>-->
+        <div class="input-group-btn search-panel">
+          <button
+            type="button"
+            class="btn btn-default dropdown-toggle"
+            ng-click="vm.toggleDropDownMenu()"
+          >
+            <span id="search_concept">{{vm.model.filterByLabel}}</span>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu filterMenu" role="menu">
+            <li
+              class="handCursor"
+              ng-repeat="option in vm.model.filterOption"
+              ng-click="vm.selectFilterOption(option)"
+              ng-hide="option.label === vm.model.filterByLabel"
+            >
+              <a>{{option.label}}</a>
+            </li>
+          </ul>
+        </div>
+        <input
+          type="hidden"
+          name="search_param"
+          value="all"
+          id="search_param"
+        />
+        <input
+          type="text"
+          class="form-control"
+          name="x"
+          placeholder="Filter"
+          ng-model="vm.model.filter"
+        />
+      </div>
+    </span>
+    <span class="pagination col-md-3 col-xs-12 text-right">
+      <span class="details">
+        <span>{{vm.model.pagination.currentPage}}</span> of
+        <span>{{vm.model.pagination.totalPages}}</span> pages
+        <span>{{vm.model.currentFolderDataLength}} results</span>
+      </span>
+      <span class="controls">
+        <button
+          class="btn"
+          title="Previous"
+          ng-click="vm.prevPage()"
+          ng-disabled="vm.model.pagination.disablePrevBtn"
+        >
+          <i class="glyphicon glyphicon-chevron-left"></i>
+        </button>
 
-				<button class="btn" title="Refresh"
-						ng-click="vm.refreshPage()">
-					<i class="glyphicon glyphicon-repeat"></i>
-				</button>
-			</span>
-		</span>
-	</div>
-	<div class="newFolder row" ng-show="vm.model.showNewFolderForm">
-		<input type="text" placeholder="Folder Name" ng-model="vm.model.newFolderName">
-		<button class="btn mybtn" ng-click="vm.addNewFolder()">Add</button>
-		<button class="btn mybtn" ng-click="vm.closeNewFolderForm()">Cancel</button>
-	</div>
-	<div class="fileBrowserDetails row">
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th><input type="checkbox"></th>
-					<th>TYPE</th>
-					<th>NAME</th>
-					<th>CONTENT TYPE</th>
-					<th>SIZE</th>
-					<th>CREATED</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="handCursor"
-					ng-repeat="files in vm.model.data | searchBrowser: vm.model.currentFolderId: vm.model.filter: vm.model.filterByValue | offset: vm.model.pagination.currentPage * vm.model.pagination.itemPerPage |limitTo: vm.model.pagination.itemPerPage"
-					ng-click="vm.changeFolder(files)">
+        <button
+          class="btn"
+          title="Next"
+          ng-click="vm.nextPage()"
+          ng-disabled="vm.model.pagination.disableNextBtn"
+        >
+          <i class="glyphicon glyphicon-chevron-right"></i>
+        </button>
 
-					<td>
-						<input type="checkbox" ng-model="files.selection">
-					</td>
-					<td>
-						<span ng-show="files.type.toLowerCase() === 'directory'">
-							<i class="glyphicon glyphicon-folder-open"></i>
-						</span>
-						<span ng-show="files.type.toLowerCase() === 'file'">
-							<i class="glyphicon glyphicon-file"></i>
-						</span>
-					</td>
-					<td>
-						{{files.name}}
-					</td>
-					<td>
-						{{files.contentType}}
-					</td>
-					<td>
-						{{files.size}}
-					</td>
-					<td>
-						{{files.createdDate}}
-					</td>				
-				</tr>
-			</tbody>
-		</table>
-	</div>
+        <button class="btn" title="Refresh" ng-click="vm.refreshPage()">
+          <i class="glyphicon glyphicon-repeat"></i>
+        </button>
+      </span>
+    </span>
+  </div>
+  <div class="newFolder row" ng-show="vm.model.showNewFolderForm">
+    <input
+      type="text"
+      placeholder="Folder Name"
+      ng-model="vm.model.newFolderName"
+    />
+    <button class="btn mybtn" ng-click="vm.addNewFolder()">Add</button>
+    <button class="btn mybtn" ng-click="vm.closeNewFolderForm()">Cancel</button>
+  </div>
+  <div class="fileBrowserDetails row">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>TYPE</th>
+          <th>NAME</th>
+          <th>CONTENT TYPE</th>
+          <th>SIZE</th>
+          <th>CREATED</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="handCursor"
+          ng-repeat="files in vm.model.data | searchBrowser: vm.model.currentFolderId: vm.model.filter: vm.model.filterByValue | offset: vm.model.pagination.currentPage * vm.model.pagination.itemPerPage |limitTo: vm.model.pagination.itemPerPage"
+          ng-click="vm.changeFolder(files)"
+        >
+          <td>
+            <input type="checkbox" ng-model="files.selection" />
+          </td>
+          <td>
+            <span ng-show="files.type.toLowerCase() === 'directory'">
+              <i class="glyphicon glyphicon-folder-open"></i>
+            </span>
+            <span ng-show="files.type.toLowerCase() === 'file'">
+              <i class="glyphicon glyphicon-file"></i>
+            </span>
+          </td>
+          <td>{{files.name}}</td>
+          <td>{{files.contentType}}</td>
+          <td>{{files.size}}</td>
+          <td>{{files.createdDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
