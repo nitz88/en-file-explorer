@@ -19,6 +19,9 @@ This repository was created for making File Explorer on angular 1.4.3 and webpac
  - Add files by drag-drop
  - Remove directory/ filess
 
+### Note
+Same application will be developed in VueJS, Angular and React JS.
+
 License
 ----
 MIT
